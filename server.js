@@ -3,12 +3,14 @@ import connectDB from "./config/db.js"
 import authRoutes from "./routes/authRoute.js"
 import cors from "cors"
 import morgan from "morgan"
-
+import {fileURLToPath} from "url"
 import path from "path"
 const app = express()
 
 connectDB()
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 //middlewares
 app.use(cors())
 app.use(express.json())
